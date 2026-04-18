@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   const featuredPieces = [
     { name: "Vintage Jacket", price: "£95" },
@@ -11,7 +13,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-6">
           <div className="flex flex-col items-center justify-center gap-3 text-center">
             <p className="text-xs uppercase tracking-[0.35em] text-stone-500">
-              14 · St Micheal's Hill · Bristol
+              14 · St Michael&apos;s Hill · Bristol
             </p>
 
             <a
@@ -19,22 +21,14 @@ export default function Home() {
               className="text-5xl leading-none text-stone-800 md:text-7xl"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
-              Curated
+              14 · Curated · 14
             </a>
-
-            <div className="flex items-center gap-4 text-sm uppercase tracking-[0.25em] text-stone-600">
-              <span>14</span>
-              <span>•</span>
-              <span>Vintage</span>
-              <span>•</span>
-              <span>14</span>
-            </div>
 
             <nav className="mt-3 flex flex-wrap justify-center gap-6 text-sm uppercase tracking-[0.18em] text-stone-700">
               <a href="#about" className="transition hover:opacity-60">
                 About
               </a>
-              <a href="#shop" className="transition hover:opacity-60">
+              <a href="#pieces" className="transition hover:opacity-60">
                 Shop
               </a>
               <a href="#visit" className="transition hover:opacity-60">
@@ -45,47 +39,52 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-end">
-        <div className="space-y-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
-            Vintage store · Bristol
-          </p>
+      <section className="relative">
+        <div className="relative h-[70vh] min-h-[520px] w-full overflow-hidden">
+          <Image
+            src="https://storage.googleapis.com/curated-assets/_DSF4694.avif"
+            alt="Curated vintage hero image"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/25" />
 
-          <h1
-            className="max-w-xl text-5xl leading-tight text-stone-800 md:text-7xl"
-            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-          >
-            Timeless Classics, thoughtfully selected.
-          </h1>
+          <div className="absolute inset-0 flex items-end justify-center px-6 pb-16 md:items-center md:pb-0">
+            <div className="max-w-3xl text-center text-white">
+              <h1
+                className="text-4xl leading-tight md:text-6xl"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              >
+                Timeless Classics, thoughtfully selected.
+              </h1>
 
-          <p className="max-w-lg text-base leading-7 text-stone-600 md:text-lg">
-            Curated is a vintage store focused on distinctive clothing with
-            character, quality, and lasting style.
-          </p>
+              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/90 md:text-lg">
+                Curated is a vintage store focused on distinctive clothing with
+                character, quality, and lasting style.
+              </p>
 
-          <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="#pieces"
-              className="rounded-full bg-stone-900 px-6 py-3 text-sm text-white transition hover:opacity-85"
-            >
-              View featured pieces
-            </a>
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <a
+                  href="#pieces"
+                  className="rounded-full bg-white px-6 py-3 text-sm text-stone-900 transition hover:opacity-85"
+                >
+                  View featured pieces
+                </a>
 
-            <a
-              href="#visit"
-              className="rounded-full border border-stone-300 px-6 py-3 text-sm transition hover:bg-stone-100"
-            >
-              Visit the store
-            </a>
+                <a
+                  href="#visit"
+                  className="rounded-full border border-white px-6 py-3 text-sm text-white transition hover:bg-white hover:text-stone-900"
+                >
+                  Visit the store
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div>
-          <div className="aspect-[4/5] w-full rounded-3xl border border-stone-300 bg-stone-200" />
         </div>
       </section>
 
-      <section id="about" className="border-t border-stone-200">
+      <section id="about" className="border-t border-stone-200 bg-stone-50">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
@@ -110,7 +109,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pieces" className="border-t border-stone-200">
+      <section id="pieces" className="border-t border-stone-200 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="mb-10">
             <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
@@ -130,7 +129,12 @@ export default function Home() {
                 key={item.name}
                 className="overflow-hidden rounded-3xl border border-stone-200 bg-white"
               >
-                <div className="aspect-[4/5] bg-stone-200" />
+                <div className="relative aspect-[4/5] bg-stone-200">
+                  <div className="absolute inset-0 flex items-center justify-center text-sm text-stone-500">
+                    Add product image
+                  </div>
+                </div>
+
                 <div className="space-y-2 p-5">
                   <h3 className="text-lg font-medium">{item.name}</h3>
                   <p className="text-sm text-stone-500">{item.price}</p>
@@ -141,7 +145,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="visit" className="border-t border-stone-200">
+      <section id="visit" className="border-t border-stone-200 bg-stone-50">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2">
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
@@ -154,7 +158,8 @@ export default function Home() {
               Come by the store
             </h2>
             <p className="max-w-md leading-7 text-stone-600">
-              14 St Micheal's Hill, Bristol BS2 8DE. Open Saturday and Sunday from 11:00 to 17:00.
+              14 St Michael&apos;s Hill, Bristol BS2 8DE. Open Saturday and Sunday
+              from 11:00 to 17:00.
             </p>
           </div>
 
