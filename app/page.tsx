@@ -144,7 +144,7 @@ export default function Home() {
       {/*                                HEADER                                */}
       {/* -------------------------------------------------------------------- */}
       <header className="sticky top-0 z-50 border-b border-stone-300 bg-stone-100/95 backdrop-blur">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-12">
           <nav className="hidden gap-8 text-sm uppercase tracking-[0.18em] text-stone-700 md:flex">
             <a href="#about" className="transition hover:opacity-60">
               About
