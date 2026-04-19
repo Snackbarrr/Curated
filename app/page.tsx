@@ -55,9 +55,9 @@ function Reveal({ children }: { children: React.ReactNode }) {
 /* -------------------------------------------------------------------------- */
 
 const heroImages = [
-  'https://storage.googleapis.com/curated-assets/_DSF4694.avif',
-  'https://storage.googleapis.com/curated-assets/_DSF4694.avif',
-  'https://storage.googleapis.com/curated-assets/_DSF4694.avif',
+  'https://storage.googleapis.com/curated-assets/DSCF1434_converted.avif',
+  'https://storage.googleapis.com/curated-assets/DSCF1429_converted.avif',
+  'https://storage.googleapis.com/curated-assets/DSCF1443_converted.avif',
 ];
 
 const heroCaptions = [
@@ -77,19 +77,19 @@ const heroCaptions = [
 
 const featuredPieces = [
   {
-    name: 'Vintage Jacket',
-    price: '£95',
-    image: 'https://storage.googleapis.com/curated-assets/_DSF4694.avif',
+    name: 'RAF Flight Jacket',
+    price: '£3000',
+    image: 'https://storage.googleapis.com/curated-assets/raf_converted.avif',
   },
   {
-    name: 'Classic Knit',
-    price: '£48',
-    image: 'https://storage.googleapis.com/curated-assets/_DSF4694.avif',
+    name: 'Denison Smock',
+    price: '£1300',
+    image: 'https://storage.googleapis.com/curated-assets/para_converted.avif',
   },
   {
-    name: 'Tailored Trousers',
+    name: 'Woolrich Flannel',
     price: '£58',
-    image: 'https://storage.googleapis.com/curated-assets/_DSF4694.avif',
+    image: 'https://storage.googleapis.com/curated-assets/check_converted.avif',
   },
 ];
 
