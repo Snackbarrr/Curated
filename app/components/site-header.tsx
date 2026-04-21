@@ -64,7 +64,7 @@ export default function SiteHeader() {
 
             <Link
               href="/"
-              className="mt-1 block text-[2rem] leading-none md:text-4xl"
+              className="mt-1 block text-[1.6rem] leading-none md:text-3xl"
               style={{
                 fontFamily: "Georgia, 'Times New Roman', serif",
                 color: '#d4b06a',

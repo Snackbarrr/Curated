@@ -55,9 +55,15 @@ function Reveal({ children }: { children: React.ReactNode }) {
 /*                                   DATA                                     */
 /* -------------------------------------------------------------------------- */
 
-const heroImages = [
+const mobileHeroImages = [
+  'https://storage.googleapis.com/curated-assets/mobilelanding/jeanshangmobile.avif',
+  'https://storage.googleapis.com/curated-assets/mobilelanding/jeanstackmobile.avif',
+  'https://storage.googleapis.com/curated-assets/mobilelanding/jeanchairmobile.avif',
+];
+
+const desktopHeroImages = [
   'https://storage.googleapis.com/curated-assets/DSCF1434_converted.avif',
-  'https://storage.googleapis.com/curated-assets/DSCF1429_converted.avif',
+  'https://storage.googleapis.com/curated-assets/jeanstackdesktop.avif',
   'https://storage.googleapis.com/curated-assets/DSCF1443_converted.avif',
 ];
 
@@ -99,13 +105,44 @@ const featuredPieces = [
 /* -------------------------------------------------------------------------- */
 
 export default function Home() {
-  /* ------------------------------- state ---------------------------------- */
   const [currentHero, setCurrentHero] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
 
-  /* ------------------------ pause slider when hidden ----------------------- */
+  /* ------------------------ detect mobile viewport ------------------------ */
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+    const handleChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobile(e.matches);
+    };
+
+    handleChange(mediaQuery);
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    } else {
+      mediaQuery.addListener(handleChange);
+      return () => mediaQuery.removeListener(handleChange);
+    }
+  }, []);
+
+  const activeHeroImages = isMobile ? mobileHeroImages : desktopHeroImages;
+  const safeHeroCount = Math.min(activeHeroImages.length, heroCaptions.length);
+  const cappedHeroIndex = currentHero % Math.max(safeHeroCount, 1);
+  const cap = heroCaptions[cappedHeroIndex];
+
+  /* ------------------------ keep hero index in range ---------------------- */
+  useEffect(() => {
+    if (currentHero >= safeHeroCount) {
+      setCurrentHero(0);
+    }
+  }, [currentHero, safeHeroCount]);
+
+  /* ------------------------ pause slider when hidden ---------------------- */
   useEffect(() => {
     const onVis = () => setIsVisible(document.visibilityState === 'visible');
     onVis();
@@ -113,18 +150,18 @@ export default function Home() {
     return () => document.removeEventListener('visibilitychange', onVis);
   }, []);
 
-  /* ----------------------------- hero slider ------------------------------- */
+  /* ----------------------------- hero slider ------------------------------ */
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || safeHeroCount <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentHero((prev) => (prev + 1) % heroImages.length);
+      setCurrentHero((prev) => (prev + 1) % safeHeroCount);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isVisible]);
+  }, [isVisible, safeHeroCount]);
 
-  /* ----------------------------- scroll fade ------------------------------- */
+  /* ----------------------------- scroll fade ------------------------------ */
   useEffect(() => {
     const onScroll = () => {
       if (!heroRef.current) return;
@@ -141,8 +178,6 @@ export default function Home() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const cap = heroCaptions[currentHero];
-
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
       {/* -------------------------------------------------------------------- */}
@@ -158,13 +193,12 @@ export default function Home() {
         className="relative h-[78vh] min-h-[560px] w-full overflow-hidden md:h-[88vh] md:min-h-[620px]"
         aria-label="Curated hero"
       >
-        {/* ------------------------ hero image slideshow --------------------- */}
-        {heroImages.map((src, index) => {
-          const isActive = index === currentHero;
+        {activeHeroImages.slice(0, safeHeroCount).map((src, index) => {
+          const isActive = index === cappedHeroIndex;
 
           return (
             <div
-              key={index}
+              key={src}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                 isActive ? 'z-10 opacity-100' : 'z-0 opacity-0'
               }`}
@@ -175,7 +209,7 @@ export default function Home() {
                 alt="Curated vintage store hero image"
                 fill
                 priority={index === 0}
-                className="object-cover object-center md:object-cover md:object-center"
+                className="object-cover object-center"
                 sizes="100vw"
               />
             </div>
@@ -239,7 +273,6 @@ export default function Home() {
       {/* -------------------------------------------------------------------- */}
       <section id="about" className="relative w-full bg-white">
         <div className="mx-auto max-w-[1600px] px-6">
-          {/* -------------------------- sticky title ------------------------- */}
           <div className="relative mb-[10vh] h-[70vh] md:h-[92vh]">
             <div className="sticky top-20 md:top-28">
               <h2
@@ -255,7 +288,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* -------------------------- manifesto copy ----------------------- */}
           <div className="mx-auto max-w-3xl space-y-10 pb-24">
             <Reveal>
               <p className="text-xl text-stone-600">
