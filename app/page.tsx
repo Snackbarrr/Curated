@@ -99,11 +99,13 @@ const featuredPieces = [
 /* -------------------------------------------------------------------------- */
 
 export default function Home() {
+  /* ------------------------------- state ---------------------------------- */
   const [currentHero, setCurrentHero] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const heroRef = useRef<HTMLElement | null>(null);
 
+  /* ------------------------ pause slider when hidden ----------------------- */
   useEffect(() => {
     const onVis = () => setIsVisible(document.visibilityState === 'visible');
     onVis();
@@ -111,6 +113,7 @@ export default function Home() {
     return () => document.removeEventListener('visibilitychange', onVis);
   }, []);
 
+  /* ----------------------------- hero slider ------------------------------- */
   useEffect(() => {
     if (!isVisible) return;
 
@@ -121,6 +124,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [isVisible]);
 
+  /* ----------------------------- scroll fade ------------------------------- */
   useEffect(() => {
     const onScroll = () => {
       if (!heroRef.current) return;
@@ -141,13 +145,20 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
+      {/* -------------------------------------------------------------------- */}
+      {/*                              SITE HEADER                             */}
+      {/* -------------------------------------------------------------------- */}
       <SiteHeader />
 
+      {/* -------------------------------------------------------------------- */}
+      {/*                               HERO AREA                              */}
+      {/* -------------------------------------------------------------------- */}
       <section
         ref={heroRef}
-        className="relative h-[72vh] min-h-[480px] w-full overflow-hidden md:h-[88vh] md:min-h-[620px]"
+        className="relative h-[78vh] min-h-[560px] w-full overflow-hidden md:h-[88vh] md:min-h-[620px]"
         aria-label="Curated hero"
       >
+        {/* ------------------------ hero image slideshow --------------------- */}
         {heroImages.map((src, index) => {
           const isActive = index === currentHero;
 
@@ -164,45 +175,47 @@ export default function Home() {
                 alt="Curated vintage store hero image"
                 fill
                 priority={index === 0}
-                className="object-contain bg-black md:object-cover"
+                className="object-cover object-center md:object-cover md:object-center"
                 sizes="100vw"
               />
             </div>
           );
         })}
 
-        <div className="absolute inset-0 z-[12] bg-black/25" />
+        {/* ----------------------------- overlay ----------------------------- */}
+        <div className="absolute inset-0 z-[12] bg-black/30 md:bg-black/25" />
 
+        {/* --------------------------- hero content -------------------------- */}
         <div
-          className="absolute inset-0 z-[20] flex items-end justify-center px-6 pb-12 md:items-center md:justify-end md:pb-0 md:pr-[7%]"
+          className="absolute inset-0 z-[20] flex items-center justify-center px-5 pt-16 md:items-center md:justify-end md:px-6 md:pt-0 md:pr-[7%]"
           style={{
             opacity: 1 - scrollProgress,
             transform: `translateY(${scrollProgress * 14}px)`,
           }}
         >
-          <div className="max-w-2xl text-center text-white md:text-right">
+          <div className="max-w-[340px] text-center text-white md:max-w-2xl md:text-right">
             <h1
-              className="text-3xl leading-tight md:text-6xl"
+              className="text-[2.2rem] leading-[0.95] md:text-6xl"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
               {cap.h}
             </h1>
 
-            <p className="mt-4 text-sm leading-7 text-white/90 md:ml-auto md:max-w-xl md:text-lg">
+            <p className="mt-4 text-base leading-7 text-white/90 md:ml-auto md:max-w-xl md:text-lg">
               {cap.p}
             </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-end">
+            <div className="mt-7 flex flex-wrap justify-center gap-3 md:justify-end md:gap-4">
               <a
                 href="/shop"
-                className="rounded-full bg-white px-6 py-3 text-sm text-stone-900 transition hover:opacity-85"
+                className="rounded-full bg-white px-5 py-3 text-sm text-stone-900 transition hover:opacity-85 md:px-6"
               >
                 View Collection
               </a>
 
               <a
                 href="#visit"
-                className="rounded-full border border-white px-6 py-3 text-sm text-white transition hover:bg-white hover:text-stone-900"
+                className="rounded-full border border-white px-5 py-3 text-sm text-white transition hover:bg-white hover:text-stone-900 md:px-6"
               >
                 Visit
               </a>
@@ -210,8 +223,9 @@ export default function Home() {
           </div>
         </div>
 
+        {/* ------------------------ desktop scroll cue ----------------------- */}
         <div
-          className="absolute bottom-6 left-1/2 z-[20] -translate-x-1/2 text-xs tracking-[0.25em] text-white/80"
+          className="absolute bottom-6 left-1/2 z-[20] hidden -translate-x-1/2 text-xs tracking-[0.25em] text-white/80 md:block"
           style={{ opacity: 1 - scrollProgress }}
           aria-hidden="true"
         >
@@ -220,8 +234,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* -------------------------------------------------------------------- */}
+      {/*                          BRAND / MANIFESTO                           */}
+      {/* -------------------------------------------------------------------- */}
       <section id="about" className="relative w-full bg-white">
         <div className="mx-auto max-w-[1600px] px-6">
+          {/* -------------------------- sticky title ------------------------- */}
           <div className="relative mb-[10vh] h-[70vh] md:h-[92vh]">
             <div className="sticky top-20 md:top-28">
               <h2
@@ -237,6 +255,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* -------------------------- manifesto copy ----------------------- */}
           <div className="mx-auto max-w-3xl space-y-10 pb-24">
             <Reveal>
               <p className="text-xl text-stone-600">
@@ -290,6 +309,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* -------------------------------------------------------------------- */}
+      {/*                            FEATURED PIECES                           */}
+      {/* -------------------------------------------------------------------- */}
       <section id="pieces" className="border-t border-stone-200 bg-stone-50">
         <div className="mx-auto max-w-6xl px-6 py-18 md:py-24">
           <Reveal>
@@ -332,6 +354,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* -------------------------------------------------------------------- */}
+      {/*                                VISIT                                 */}
+      {/* -------------------------------------------------------------------- */}
       <section id="visit" className="border-t border-stone-200 bg-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-18 md:grid-cols-2 md:py-24">
           <Reveal>
@@ -368,6 +393,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* -------------------------------------------------------------------- */}
+      {/*                                FOOTER                                */}
+      {/* -------------------------------------------------------------------- */}
       <footer className="border-t border-stone-200 bg-stone-100">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6 text-sm text-stone-500 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Curated</p>
