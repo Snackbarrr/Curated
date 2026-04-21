@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import SiteHeader from './components/site-header';
 
 /* -------------------------------------------------------------------------- */
 /*                               REVEAL LOGIC                                 */
@@ -140,72 +141,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
-      {/* -------------------------------------------------------------------- */}
-{/*                             AWNING STRIP                             */}
-{/* -------------------------------------------------------------------- */}
-<div className="sticky top-0 z-50 h-6 w-full bg-[repeating-linear-gradient(90deg,#000_0px,#000_24px,#fff_24px,#fff_48px)]" />
+      <SiteHeader />
 
-{/* -------------------------------------------------------------------- */}
-{/*                                HEADER                                */}
-{/* -------------------------------------------------------------------- */}
-
-<header
-  className="sticky top-6 z-40 backdrop-blur"
-  style={{
-    backgroundColor: "rgba(11,11,11,0.95)",
-    borderBottom: "1px solid rgba(212,176,106,0.35)",
-  }}
->
-  <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-12">
-    <nav
-      className="hidden gap-8 text-sm uppercase tracking-[0.18em] md:flex"
-      style={{ color: "#d4b06a" }}
-    >
-      <a href="#about" className="transition hover:opacity-60">
-        About
-      </a>
-      <a href="/shop" className="transition hover:opacity-60">
-        Collection
-      </a>
-      <a href="#visit" className="transition hover:opacity-60">
-        Visit
-      </a>
-    </nav>
-
-    <div className="mx-auto text-center md:absolute md:left-1/2 md:-translate-x-1/2">
-      <p
-        className="text-[10px] uppercase tracking-[0.35em]"
-        style={{ color: "#b89657" }}
-      >
-        14 · St Michael&apos;s Hill · Bristol
-      </p>
-      <a
-        href="/"
-        className="mt-1 block text-3xl leading-none md:text-5xl"
-        style={{
-          fontFamily: "Georgia, 'Times New Roman', serif",
-          color: "#d4b06a",
-        }}
-      >
-        14 · Curated · 14
-      </a>
-    </div>
-
-    <div
-      className="hidden text-sm uppercase tracking-[0.18em] md:block"
-      style={{ color: "#d4b06a" }}
-    >
-      Home of R.Forrest
-    </div>
-  </div>
-</header>
-
-      {/* -------------------------------------------------------------------- */}
-      {/*                              HERO SECTION                            */}
-      {/* -------------------------------------------------------------------- */}
       <section
         ref={heroRef}
-        className="relative h-[88vh] min-h-[620px] w-full overflow-hidden"
+        className="relative h-[72vh] min-h-[480px] w-full overflow-hidden md:h-[88vh] md:min-h-[620px]"
         aria-label="Curated hero"
       >
         {heroImages.map((src, index) => {
@@ -215,7 +155,7 @@ export default function Home() {
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isActive ? 'z-20 opacity-100' : 'z-10 opacity-0'
+                isActive ? 'z-10 opacity-100' : 'z-0 opacity-0'
               }`}
               aria-hidden={!isActive}
             >
@@ -224,17 +164,17 @@ export default function Home() {
                 alt="Curated vintage store hero image"
                 fill
                 priority={index === 0}
-                className="object-cover"
+                className="object-contain bg-black md:object-cover"
                 sizes="100vw"
               />
             </div>
           );
         })}
 
-        <div className="absolute inset-0 z-30 bg-black/25" />
+        <div className="absolute inset-0 z-[12] bg-black/25" />
 
         <div
-          className="absolute inset-0 z-40 flex items-end justify-center px-6 pb-16 md:items-center md:justify-end md:pr-[7%] md:pb-0"
+          className="absolute inset-0 z-[20] flex items-end justify-center px-6 pb-12 md:items-center md:justify-end md:pb-0 md:pr-[7%]"
           style={{
             opacity: 1 - scrollProgress,
             transform: `translateY(${scrollProgress * 14}px)`,
@@ -242,7 +182,7 @@ export default function Home() {
         >
           <div className="max-w-2xl text-center text-white md:text-right">
             <h1
-              className="text-4xl leading-tight md:text-6xl"
+              className="text-3xl leading-tight md:text-6xl"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
               {cap.h}
@@ -271,7 +211,7 @@ export default function Home() {
         </div>
 
         <div
-          className="absolute bottom-6 left-1/2 z-40 -translate-x-1/2 text-xs tracking-[0.25em] text-white/80"
+          className="absolute bottom-6 left-1/2 z-[20] -translate-x-1/2 text-xs tracking-[0.25em] text-white/80"
           style={{ opacity: 1 - scrollProgress }}
           aria-hidden="true"
         >
@@ -280,9 +220,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* -------------------------------------------------------------------- */}
-      {/*                           BRAND / MANIFESTO                          */}
-      {/* -------------------------------------------------------------------- */}
       <section id="about" className="relative w-full bg-white">
         <div className="mx-auto max-w-[1600px] px-6">
           <div className="relative mb-[10vh] h-[70vh] md:h-[92vh]">
@@ -310,9 +247,9 @@ export default function Home() {
 
             <Reveal>
               <p className="text-lg leading-relaxed text-stone-600">
-                Based in the heart of Bristol, Curated is a place built around history, longevity,
-                and good taste. Pieces are chosen for the way they
-                sit, age, and live with the person owning them.
+                Based in the heart of Bristol, Curated is a place built around history,
+                longevity, and good taste. Pieces are chosen for the way they sit, age,
+                and live with the person owning them.
               </p>
             </Reveal>
 
@@ -325,7 +262,8 @@ export default function Home() {
 
             <Reveal>
               <p className="text-lg leading-relaxed text-stone-600">
-                From Sartorial Classics and Denim to Antiques and Art, the store is run by instinct, quality, and lasting appeal.
+                From Sartorial Classics and Denim to Antiques and Art, the store is run
+                by instinct, quality, and lasting appeal.
               </p>
             </Reveal>
 
@@ -352,9 +290,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* -------------------------------------------------------------------- */}
-      {/*                             FEATURED PIECES                          */}
-      {/* -------------------------------------------------------------------- */}
       <section id="pieces" className="border-t border-stone-200 bg-stone-50">
         <div className="mx-auto max-w-6xl px-6 py-18 md:py-24">
           <Reveal>
@@ -397,9 +332,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* -------------------------------------------------------------------- */}
-      {/*                                VISIT                                  */}
-      {/* -------------------------------------------------------------------- */}
       <section id="visit" className="border-t border-stone-200 bg-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-18 md:grid-cols-2 md:py-24">
           <Reveal>
@@ -436,9 +368,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* -------------------------------------------------------------------- */}
-      {/*                                FOOTER                                 */}
-      {/* -------------------------------------------------------------------- */}
       <footer className="border-t border-stone-200 bg-stone-100">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6 text-sm text-stone-500 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Curated</p>

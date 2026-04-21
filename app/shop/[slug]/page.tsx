@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products } from "../../data/products";
+import SiteHeader from "../../components/site-header";
 
 type PageProps = {
   params: Promise<{
@@ -26,37 +27,7 @@ export default async function ProductPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
-      <div className="sticky top-0 z-50 h-6 w-full bg-[repeating-linear-gradient(90deg,#000_0px,#000_24px,#fff_24px,#fff_48px)]" />
-
-      <header className="sticky top-6 z-40 border-b border-stone-300 bg-stone-100/95 backdrop-blur">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-8">
-          <nav className="hidden gap-8 text-sm uppercase tracking-[0.18em] text-stone-700 md:flex">
-            <Link href="/" className="transition hover:opacity-60">
-              Home
-            </Link>
-            <Link href="/shop" className="transition hover:opacity-60">
-              Collection
-            </Link>
-          </nav>
-
-          <div className="mx-auto text-center md:absolute md:left-1/2 md:-translate-x-1/2">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-stone-500">
-              14 · St Michael&apos;s Hill · Bristol
-            </p>
-            <Link
-              href="/"
-              className="mt-2 block text-4xl leading-none text-stone-800 md:text-6xl"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              14 · Curated · 14
-            </Link>
-          </div>
-
-          <div className="hidden text-sm uppercase tracking-[0.18em] text-stone-700 md:block">
-            Home of R.Forrest
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="border-b border-stone-200 bg-white">
         <div className="mx-auto max-w-[1700px] px-4 py-4 md:px-6 md:py-6">
