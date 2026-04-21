@@ -29,8 +29,8 @@ export default function SiteHeader() {
             className="hidden gap-6 text-[11px] uppercase tracking-[0.16em] md:flex"
             style={{ color: '#d4b06a' }}
           >
-            <Link href="/#about" className="transition hover:opacity-60">
-              About
+            <Link href="/" className="transition hover:opacity-60">
+              Home
             </Link>
             <Link href="/shop" className="transition hover:opacity-60">
               Collection
