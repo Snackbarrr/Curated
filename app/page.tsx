@@ -290,14 +290,18 @@ export default function Home() {
 
           <div className="mx-auto max-w-3xl space-y-10 pb-24">
             <Reveal>
-              <p className="text-xl text-stone-600">
+              <p className="text-xl text-stone-600"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
                 Good clothing endures. <br />
                 Trends may change but <span className="font-semibold text-stone-900">Taste remains.</span>
               </p>
             </Reveal>
 
             <Reveal>
-              <p className="text-lg leading-relaxed text-stone-600">
+              <p className="text-lg leading-relaxed text-stone-600"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
                 Based in the heart of Bristol, Curated is a place built around history,
                 longevity, and good taste. Pieces are chosen for the way they sit, age,
                 and live with the person owning them.
@@ -305,14 +309,18 @@ export default function Home() {
             </Reveal>
 
             <Reveal>
-              <p className="text-lg leading-relaxed text-stone-600">
+              <p className="text-lg leading-relaxed text-stone-600"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
                 The aim is simple: fewer pieces, better choices, and a point of view
                 that feels earned.
               </p>
             </Reveal>
 
             <Reveal>
-              <p className="text-lg leading-relaxed text-stone-600">
+              <p className="text-lg leading-relaxed text-stone-600"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
                 From Sartorial Classics and Denim to Antiques and Art, the store is run
                 by instinct, quality, and lasting appeal.
               </p>
