@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import SiteHeader from './components/site-header';
+import Link from 'next/link';
 
 /* -------------------------------------------------------------------------- */
 /*                               REVEAL LOGIC                                 */
@@ -84,18 +85,24 @@ const heroCaptions = [
 
 const featuredPieces = [
   {
-    name: 'RAF Flight Jacket',
+    slug: 'unissued-raf-flight-jacket',
+    name: '1950s RAF Flight Parka',
     price: '£3,000',
+    description: 'Rare unissued military outerwear in Cotton Ventile.',
     image: 'https://storage.googleapis.com/curated-assets/raf_converted.avif',
   },
   {
-    name: 'Denison Smock',
-    price: '£1,300',
+    slug: 'denison-smock',
+    name: 'British Denison Smock',
+    price: '£1,250',
+    description: 'A highly collectible field garment with unmistakable brushstroke camouflage and character.',
     image: 'https://storage.googleapis.com/curated-assets/para_converted.avif',
   },
   {
-    name: '45RPM Selvedge Denim Made in Japan',
-    price: '£1,050',
+    slug: '45rpm-japanese-selvedge-denim',
+    name: '45RPM Japanese Selvedge Denim soft fade',
+    price: '£930',
+    description: 'Legendary Japanese selvedge denim with a unique soft fade and lived-in feel.',
     image: 'https://storage.googleapis.com/curated-assets/45RPM2/front45RPM2-1_converted.avif',
   },
 ];
@@ -353,46 +360,54 @@ export default function Home() {
       {/*                            FEATURED PIECES                           */}
       {/* -------------------------------------------------------------------- */}
       <section id="pieces" className="border-t border-stone-200 bg-stone-50">
-        <div className="mx-auto max-w-6xl px-6 py-18 md:py-24">
-          <Reveal>
-            <div className="mb-12">
-              <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
-                Featured pieces
-              </p>
-              <h2
-                className="mt-3 text-3xl text-stone-800 md:text-4xl"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-              >
-                A first selection
-              </h2>
-            </div>
-          </Reveal>
+  <div className="mx-auto max-w-6xl px-6 py-18 md:py-24">
+    <Reveal>
+      <div className="mb-12">
+        <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
+          Featured pieces
+        </p>
+        <h2
+          className="mt-3 text-3xl text-stone-800 md:text-4xl"
+          style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+        >
+          A first selection
+        </h2>
+      </div>
+    </Reveal>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredPieces.map((item, index) => (
-              <Reveal key={item.name}>
-                <article className="overflow-hidden rounded-3xl border border-stone-200 bg-white">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-stone-200">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover transition-transform duration-700 hover:scale-[1.03]"
-                      sizes="(max-width: 1024px) 50vw, 33vw"
-                      priority={index === 0}
-                    />
-                  </div>
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {featuredPieces.map((item, index) => (
+        <Reveal key={item.slug}>
+          <Link href={`/shop/${item.slug}`} className="block">
+            <article className="overflow-hidden rounded-3xl border border-stone-200 bg-white transition hover:shadow-sm">
+              <div className="relative aspect-[4/5] overflow-hidden bg-stone-200">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                  sizes="(max-width: 1024px) 50vw, 33vw"
+                  priority={index === 0}
+                />
+              </div>
 
-                  <div className="space-y-2 p-5">
-                    <h3 className="text-lg font-medium">{item.name}</h3>
-                    <p className="text-sm text-stone-500">{item.price}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+              <div className="space-y-2 p-5">
+                <h3 className="text-lg font-medium">{item.name}</h3>
+                <p className="text-sm text-stone-500">{item.price}</p>
+                <p className="text-sm leading-6 text-stone-600">
+                  {item.description}
+                </p>
+                <p className="pt-1 text-sm underline underline-offset-4">
+                  View piece
+                </p>
+              </div>
+            </article>
+          </Link>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* -------------------------------------------------------------------- */}
       {/*                                VISIT                                 */}
