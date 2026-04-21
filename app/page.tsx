@@ -70,16 +70,16 @@ const desktopHeroImages = [
 
 const heroCaptions = [
   {
-    h: 'Timeless classics, thoughtfully selected.',
-    p: 'Vintage clothing with character, presence, and lasting style.',
+    h: 'Timeless classics, tastefully selected.',
+    p: 'Fewer pieces. Better choices.',
   },
   {
-    h: 'A store built on shape, fabric, and feeling.',
-    p: 'Pieces chosen for how they wear, age, and live beyond trend.',
+    h: 'A space built on shape, fabric, and feeling.',
+    p: 'Clothing with character and everlasting style.',
   },
   {
     h: 'Curated for the long term.',
-    p: 'Fewer pieces. Better choices. A stronger point of view.',
+    p: 'Vintage clothing, antiques and art.',
   },
 ];
 
@@ -99,7 +99,7 @@ const featuredPieces = [
     image: 'https://storage.googleapis.com/curated-assets/para_converted.avif',
   },
   {
-    slug: '45rpm-japanese-selvedge-denim-soft-fade',
+    slug: '45rpm-japanese-selvedge-denim',
     name: '45RPM Japanese Selvedge Denim soft fade',
     price: '£930',
     description: 'Legendary Japanese selvedge denim with a unique soft fade and lived-in feel.',
@@ -228,21 +228,21 @@ export default function Home() {
 
         {/* --------------------------- hero content -------------------------- */}
         <div
-          className="absolute inset-0 z-[20] flex items-center justify-center px-5 pt-16 md:items-center md:justify-end md:px-6 md:pt-0 md:pr-[7%]"
-          style={{
-            opacity: 1 - scrollProgress,
-            transform: `translateY(${scrollProgress * 14}px)`,
-          }}
-        >
+  className="absolute inset-0 z-[20] flex items-end justify-center px-5 pb-30 md:items-center md:justify-end md:px-6 md:pb-0 md:pr-[7%]"
+  style={{
+    opacity: 1 - scrollProgress,
+    transform: `translateY(${scrollProgress * 14}px)`,
+  }}
+>
           <div className="max-w-[340px] text-center text-white md:max-w-2xl md:text-right">
             <h1
-              className="text-[2.2rem] leading-[0.95] md:text-6xl"
+              className="text-[1.5rem] leading-[0.95] md:text-5xl"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
               {cap.h}
             </h1>
 
-            <p className="mt-4 text-base leading-7 text-white/90 md:ml-auto md:max-w-xl md:text-lg">
+            <p className="mt-4 text-sm leading-6 text-white/90 md:ml-auto md:max-w-xl md:text-base">
               {cap.p}
             </p>
 
