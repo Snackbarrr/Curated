@@ -92,14 +92,14 @@ const featuredPieces = [
     image: 'https://storage.googleapis.com/curated-assets/raf_converted.avif',
   },
   {
-    slug: 'denison-smock',
+    slug: 'british-denison-smock',
     name: 'British Denison Smock',
     price: '£1,250',
     description: 'A highly collectible field garment with unmistakable brushstroke camouflage and character.',
     image: 'https://storage.googleapis.com/curated-assets/para_converted.avif',
   },
   {
-    slug: '45rpm-japanese-selvedge-denim',
+    slug: '45rpm-japanese-selvedge-denim-soft-fade',
     name: '45RPM Japanese Selvedge Denim soft fade',
     price: '£930',
     description: 'Legendary Japanese selvedge denim with a unique soft fade and lived-in feel.',
@@ -300,8 +300,8 @@ export default function Home() {
               <p className="text-xl text-stone-600"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
-                Good clothing endures. <br />
-                Trends may change but <span className="font-semibold text-stone-900">Taste remains.</span>
+                
+                <span className="font-semibold text-stone-900">Good taste endures.</span>
               </p>
             </Reveal>
 
@@ -309,7 +309,7 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-stone-600"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
-                Based in the heart of Bristol, Curated is a place built around history,
+                Based in the heart of Bristol, Curated began with Douglas Cordeaux of Fox brothers 
                 longevity, and good taste. Pieces are chosen for the way they sit, age,
                 and live with the person owning them.
               </p>
