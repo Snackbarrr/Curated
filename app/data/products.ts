@@ -25,7 +25,7 @@ export const products: Product[] = [
   {
     slug: "unissued-raf-flight-jacket",
     name: "Unissued RAF Flight Jacket",
-    price: "£3000",
+    price: "£3,000",
     sold: false,
     category: "Outerwear",
     size: "4",
@@ -49,8 +49,8 @@ export const products: Product[] = [
   {
     slug: "denison-smock",
     name: "Denison Smock",
-    price: "£1250",
-    sold: true,
+    price: "£1,250",
+    sold: false,
     category: "Outerwear",
     size: "L",
     description:
