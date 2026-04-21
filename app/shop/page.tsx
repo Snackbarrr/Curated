@@ -5,18 +5,17 @@ import { products } from "../data/products";
 export default function ShopPage() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="sticky top-0 z-50 border-b border-stone-300 bg-stone-100/95 backdrop-blur">
+      <div className="sticky top-0 z-50 h-6 w-full bg-[repeating-linear-gradient(90deg,#000_0px,#000_24px,#fff_24px,#fff_48px)]" />
+
+      <header className="sticky top-6 z-40 border-b border-stone-300 bg-stone-100/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-8">
           <nav className="hidden gap-8 text-sm uppercase tracking-[0.18em] text-stone-700 md:flex">
             <Link href="/" className="transition hover:opacity-60">
               Home
             </Link>
             <Link href="/shop" className="transition hover:opacity-60">
-              Shop
-            </Link>
-            <a href="#collection" className="transition hover:opacity-60">
               Collection
-            </a>
+            </Link>
           </nav>
 
           <div className="mx-auto text-center md:absolute md:left-1/2 md:-translate-x-1/2">
@@ -33,7 +32,7 @@ export default function ShopPage() {
           </div>
 
           <div className="hidden text-sm uppercase tracking-[0.18em] text-stone-700 md:block">
-            Vintage Store
+            Home of R.Forrest
           </div>
         </div>
       </header>
@@ -42,17 +41,17 @@ export default function ShopPage() {
         <div className="mx-auto max-w-[1600px] px-6 py-16 md:py-24">
           <div className="max-w-3xl">
             <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
-              Shop
+              Our Collection
             </p>
             <h1
               className="mt-4 text-5xl leading-tight text-stone-900 md:text-7xl"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
-              The current collection.
+              The current anthology.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 md:text-lg">
-              A gallery of vintage pieces selected for shape, fabric, and lasting wear.
-              Each item is presented as an object to live with, not just a listing.
+              A gallery of goods selected for history, fabric, and lasting wear.
+              Each item is presented as a gallery piece, with details and stories to match. The collection is ever-changing.
             </p>
           </div>
         </div>

@@ -78,18 +78,18 @@ const heroCaptions = [
 const featuredPieces = [
   {
     name: 'RAF Flight Jacket',
-    price: '£3000',
+    price: '£3,000',
     image: 'https://storage.googleapis.com/curated-assets/raf_converted.avif',
   },
   {
     name: 'Denison Smock',
-    price: '£1300',
+    price: '£1,300',
     image: 'https://storage.googleapis.com/curated-assets/para_converted.avif',
   },
   {
-    name: 'Woolrich Flannel',
-    price: '£58',
-    image: 'https://storage.googleapis.com/curated-assets/check_converted.avif',
+    name: '45RPM Selvedge Denim Made in Japan',
+    price: '£1,050',
+    image: 'https://storage.googleapis.com/curated-assets/45RPM2/front45RPM2-1_converted.avif',
   },
 ];
 
@@ -141,40 +141,64 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
       {/* -------------------------------------------------------------------- */}
-      {/*                                HEADER                                */}
-      {/* -------------------------------------------------------------------- */}
-      <header className="sticky top-0 z-50 border-b border-stone-300 bg-stone-100/95 backdrop-blur">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-12">
-          <nav className="hidden gap-8 text-sm uppercase tracking-[0.18em] text-stone-700 md:flex">
-            <a href="#about" className="transition hover:opacity-60">
-              About
-            </a>
-            <a href="/shop" className="transition hover:opacity-60">
-              Shop
-            </a>
-            <a href="#visit" className="transition hover:opacity-60">
-              Visit
-            </a>
-          </nav>
+{/*                             AWNING STRIP                             */}
+{/* -------------------------------------------------------------------- */}
+<div className="sticky top-0 z-50 h-6 w-full bg-[repeating-linear-gradient(90deg,#000_0px,#000_24px,#fff_24px,#fff_48px)]" />
 
-          <div className="mx-auto text-center md:absolute md:left-1/2 md:-translate-x-1/2">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-stone-500">
-              14 · St Michael&apos;s Hill · Bristol
-            </p>
-            <a
-              href="/"
-              className="mt-1 block text-3xl leading-none text-stone-800 md:text-5xl"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              14 · Curated · 14
-            </a>
-          </div>
+{/* -------------------------------------------------------------------- */}
+{/*                                HEADER                                */}
+{/* -------------------------------------------------------------------- */}
 
-          <div className="hidden text-sm uppercase tracking-[0.18em] text-stone-700 md:block">
-            Vintage Store
-          </div>
-        </div>
-      </header>
+<header
+  className="sticky top-6 z-40 backdrop-blur"
+  style={{
+    backgroundColor: "rgba(11,11,11,0.95)",
+    borderBottom: "1px solid rgba(212,176,106,0.35)",
+  }}
+>
+  <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-12">
+    <nav
+      className="hidden gap-8 text-sm uppercase tracking-[0.18em] md:flex"
+      style={{ color: "#d4b06a" }}
+    >
+      <a href="#about" className="transition hover:opacity-60">
+        About
+      </a>
+      <a href="/shop" className="transition hover:opacity-60">
+        Collection
+      </a>
+      <a href="#visit" className="transition hover:opacity-60">
+        Visit
+      </a>
+    </nav>
+
+    <div className="mx-auto text-center md:absolute md:left-1/2 md:-translate-x-1/2">
+      <p
+        className="text-[10px] uppercase tracking-[0.35em]"
+        style={{ color: "#b89657" }}
+      >
+        14 · St Michael&apos;s Hill · Bristol
+      </p>
+      <a
+        href="/"
+        className="mt-1 block text-3xl leading-none md:text-5xl"
+        style={{
+          fontFamily: "Georgia, 'Times New Roman', serif",
+          color: "#d4b06a",
+        }}
+      >
+        14 · Curated · 14
+      </a>
+    </div>
+
+    <div
+      className="hidden text-sm uppercase tracking-[0.18em] md:block"
+      style={{ color: "#d4b06a" }}
+    >
+      Home of R.Forrest
+    </div>
+  </div>
+</header>
 
       {/* -------------------------------------------------------------------- */}
       {/*                              HERO SECTION                            */}
@@ -233,14 +257,14 @@ export default function Home() {
                 href="/shop"
                 className="rounded-full bg-white px-6 py-3 text-sm text-stone-900 transition hover:opacity-85"
               >
-                View selection
+                View Collection
               </a>
 
               <a
                 href="#visit"
                 className="rounded-full border border-white px-6 py-3 text-sm text-white transition hover:bg-white hover:text-stone-900"
               >
-                Visit the store
+                Visit
               </a>
             </div>
           </div>
@@ -267,11 +291,11 @@ export default function Home() {
                 className="text-[13vw] leading-none tracking-[-0.03em] text-stone-900 md:text-[9vw]"
                 style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
               >
-                Curated
-                <span className="block md:inline"> Vintage</span>
+                A Curated
+                <span className="block md:inline"> Taste</span>
               </h2>
               <p className="mt-3 text-[10px] uppercase tracking-[0.25em] text-stone-500 md:text-xs">
-                Bristol — Heritage — Everyday Wear
+                Hand picked and curated — with exceptional taste.
               </p>
             </div>
           </div>
@@ -279,30 +303,29 @@ export default function Home() {
           <div className="mx-auto max-w-3xl space-y-10 pb-24">
             <Reveal>
               <p className="text-xl text-stone-600">
-                Good clothing stays with you. <br />
-                Trends move on. <span className="font-semibold text-stone-900">Character remains.</span>
+                Good clothing endures. <br />
+                Trends may change but <span className="font-semibold text-stone-900">Taste remains.</span>
               </p>
             </Reveal>
 
             <Reveal>
               <p className="text-lg leading-relaxed text-stone-600">
-                Curated is a vintage store built around shape, fabric, wearability,
-                and presence. Pieces are chosen not for noise, but for the way they
-                sit, age, and live with the person wearing them.
+                Based in the heart of Bristol, Curated is a place built around history, longevity,
+                and good taste. Pieces are chosen for the way they
+                sit, age, and live with the person owning them.
               </p>
             </Reveal>
 
             <Reveal>
               <p className="text-lg leading-relaxed text-stone-600">
                 The aim is simple: fewer pieces, better choices, and a point of view
-                that feels considered rather than crowded.
+                that feels earned.
               </p>
             </Reveal>
 
             <Reveal>
               <p className="text-lg leading-relaxed text-stone-600">
-                From tailored classics to workwear, knitwear, outerwear and one-off
-                vintage finds, the store is shaped by instinct, quality, and lasting appeal.
+                From Sartorial Classics and Denim to Antiques and Art, the store is run by instinct, quality, and lasting appeal.
               </p>
             </Reveal>
 
@@ -311,7 +334,7 @@ export default function Home() {
                 className="pt-2 text-2xl text-stone-900"
                 style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
               >
-                Built to be worn, not just admired.
+                Curated for the long term.
               </p>
             </Reveal>
 
@@ -321,7 +344,7 @@ export default function Home() {
                   href="/shop"
                   className="inline-block rounded-full border border-stone-900 px-8 py-4 text-sm uppercase tracking-[0.25em] text-stone-900 transition-all duration-500 hover:bg-stone-900 hover:text-white"
                 >
-                  View selection
+                  View Collection
                 </a>
               </div>
             </Reveal>
@@ -403,7 +426,7 @@ export default function Home() {
               <p>Bristol, United Kingdom</p>
               <p>Sat-Sun · 11:00–17:00</p>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/curated_14/"
                 className="inline-block text-sm underline underline-offset-4"
               >
                 Instagram

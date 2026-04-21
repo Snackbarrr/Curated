@@ -26,18 +26,17 @@ export default async function ProductPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="sticky top-0 z-50 border-b border-stone-300 bg-stone-100/95 backdrop-blur">
+      <div className="sticky top-0 z-50 h-6 w-full bg-[repeating-linear-gradient(90deg,#000_0px,#000_24px,#fff_24px,#fff_48px)]" />
+
+      <header className="sticky top-6 z-40 border-b border-stone-300 bg-stone-100/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-8">
           <nav className="hidden gap-8 text-sm uppercase tracking-[0.18em] text-stone-700 md:flex">
             <Link href="/" className="transition hover:opacity-60">
               Home
             </Link>
             <Link href="/shop" className="transition hover:opacity-60">
-              Shop
+              Collection
             </Link>
-            <a href="#details" className="transition hover:opacity-60">
-              Details
-            </a>
           </nav>
 
           <div className="mx-auto text-center md:absolute md:left-1/2 md:-translate-x-1/2">
@@ -54,7 +53,7 @@ export default async function ProductPage({ params }: PageProps) {
           </div>
 
           <div className="hidden text-sm uppercase tracking-[0.18em] text-stone-700 md:block">
-            Vintage Store
+            Home of R.Forrest
           </div>
         </div>
       </header>
@@ -181,12 +180,12 @@ export default async function ProductPage({ params }: PageProps) {
                   className="text-3xl leading-tight text-stone-900 md:text-5xl"
                   style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
-                  Seen as a garment, not just a listing.
+                  {product.objectStudy?.title || "Seen as a garment, not just a listing."}
                 </h2>
 
                 <p className="leading-8 text-stone-600">
-                  Front, back, and detail views allow each piece to be understood
-                  more clearly — through cloth, line, texture, and construction.
+                  {product.objectStudy?.text ||
+                    "Front, back, and detail views allow each piece to be understood more clearly — through cloth, line, texture, and construction."}
                 </p>
               </div>
             </div>
