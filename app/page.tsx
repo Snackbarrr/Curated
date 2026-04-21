@@ -149,7 +149,7 @@ export default function Home() {
             <a href="#about" className="transition hover:opacity-60">
               About
             </a>
-            <a href="#pieces" className="transition hover:opacity-60">
+            <a href="/shop" className="transition hover:opacity-60">
               Shop
             </a>
             <a href="#visit" className="transition hover:opacity-60">
@@ -230,7 +230,7 @@ export default function Home() {
 
             <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-end">
               <a
-                href="#pieces"
+                href="/shop"
                 className="rounded-full bg-white px-6 py-3 text-sm text-stone-900 transition hover:opacity-85"
               >
                 View selection
@@ -318,7 +318,7 @@ export default function Home() {
             <Reveal>
               <div className="flex justify-center pt-12">
                 <a
-                  href="#pieces"
+                  href="/shop"
                   className="inline-block rounded-full border border-stone-900 px-8 py-4 text-sm uppercase tracking-[0.25em] text-stone-900 transition-all duration-500 hover:bg-stone-900 hover:text-white"
                 >
                   View selection
