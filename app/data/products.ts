@@ -39,6 +39,7 @@ export const products: Product[] = [
     backImage: "https://storage.googleapis.com/curated-assets/raf/rafhood_converted.avif",
     detailImages: [
       "https://storage.googleapis.com/curated-assets/raf/raflabel_converted.avif",
+      "https://storage.googleapis.com/curated-assets/raf/historicalRAF.avif",
       "https://storage.googleapis.com/curated-assets/raf/rafzip_converted.avif",
       "https://storage.googleapis.com/curated-assets/raf/rafbelt_converted.avif",
       "https://storage.googleapis.com/curated-assets/raf/rafhoodup_converted.avif",
@@ -71,10 +72,13 @@ That means a piece like this can be worn hard and still retain the qualities tha
     backImage: "https://storage.googleapis.com/curated-assets/smock/Smockback.avif",
     detailImages: [
       "https://storage.googleapis.com/curated-assets/smock/DSCF0346_converted.avif",
+      "https://storage.googleapis.com/curated-assets/smock/Denison_converted.avif",
       "https://storage.googleapis.com/curated-assets/smock/DSCF0347_converted.avif",
       "https://storage.googleapis.com/curated-assets/smock/Smockclose_converted.avif",
+      "https://storage.googleapis.com/curated-assets/smock/stuntMan_converted.avif",
       "https://storage.googleapis.com/curated-assets/smock/DSCF0348_converted.avif",
       "https://storage.googleapis.com/curated-assets/smock/DSCF0350_converted.avif",
+      "https://storage.googleapis.com/curated-assets/smock/smock_converted.avif",
       "https://storage.googleapis.com/curated-assets/smock/DSCF0352_converted.avif",
     ],
     measurements: {

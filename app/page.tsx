@@ -289,9 +289,6 @@ export default function Home() {
                 A Curated
                 <span className="block md:inline"> Taste</span>
               </h2>
-              <p className="mt-3 text-[10px] uppercase tracking-[0.25em] text-stone-500 md:text-xs">
-                Hand picked and curated — with exceptional taste.
-              </p>
             </div>
           </div>
 
@@ -309,9 +306,8 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-stone-600"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
-                Based in the heart of Bristol, Curated began with Douglas Cordeaux of Fox brothers 
-                longevity, and good taste. Pieces are chosen for the way they sit, age,
-                and live with the person owning them.
+                Based in the heart of Bristol, Curated began with 2 guys, a love for the vintage, and a desire to share pieces that embody quality. 
+                In an age where trends is the norm, We in Curated specialises in timeless classics and pieces with true substance.
               </p>
             </Reveal>
 
@@ -319,8 +315,7 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-stone-600"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
-                The aim is simple: fewer pieces, better choices, and a point of view
-                that feels earned.
+                What we love is simple: fewer pieces, better choices. See it bloom through to the very end.
               </p>
             </Reveal>
 
@@ -329,7 +324,7 @@ export default function Home() {
                 style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
                 From Sartorial Classics and Denim to Antiques and Art, the store is run
-                by instinct, quality, and lasting appeal.
+                by instinct, quality, and ever-lasting taste.
               </p>
             </Reveal>
 
