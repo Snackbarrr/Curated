@@ -298,7 +298,40 @@ export default function Home() {
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
                 
-                <span className="font-semibold text-stone-900">Good taste endures.</span>
+                <span className="font-semibold text-stone-900">Who is R. Forrest?</span>
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <p className="text-lg leading-relaxed text-stone-600"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
+                R. Forrest is a hunter, though not in a violent sense, but a seeker with a discerning eye and taste.
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <p className="text-lg leading-relaxed text-stone-600"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
+                A city dweller like many others, yet unlike most, drawn toward things of real substance. Pursuing garments for their character, craftsmanship, and longevitity.
+              </p>
+            </Reveal>
+            
+            <Reveal>
+              <p className="text-lg leading-relaxed text-stone-600"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
+                The pursuit of R. Forrest is a carefully considered wardrobe. An appreciation for history, patina, and the prestige of well-made things. Something personal. Something truly one’s own.
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <p className="text-xl text-stone-600"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
+                
+                <span className="font-semibold text-stone-900">Who is Curated?</span>
               </p>
             </Reveal>
 
