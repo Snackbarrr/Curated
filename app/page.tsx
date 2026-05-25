@@ -306,7 +306,7 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-stone-600"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
-                R. Forrest is a hunter, though not in a violent sense, but a seeker with a discerning eye and taste.
+                R. Forrest is a hunter, though not in the villainous sense, but a seeker with a discerning eye and impeccable taste.
               </p>
             </Reveal>
 
@@ -322,7 +322,7 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-stone-600"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                 >
-                The pursuit of R. Forrest is a carefully considered wardrobe. An appreciation for history, patina, and the prestige of well-made things. Something personal. Something truly one’s own.
+                The pursuit of R. Forrest is a carefully considered wardrobe. An appreciation for history, patina, and the contribution to prestige of Truly well-made things. Something personal. Something truly one’s own.
               </p>
             </Reveal>
 
